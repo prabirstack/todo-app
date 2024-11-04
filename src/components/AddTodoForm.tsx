@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Button from "./Button";
 
-type AddTodoFormProps = {
-  handleAddTodo: (todoText: string) => void;
-};
-export default function AddTodoForm({ handleAddTodo }: AddTodoFormProps) {
+import { useTodosContext } from "../lib/hooks";
+
+export default function AddTodoForm() {
   const [todoText, setTodoText] = useState("");
+  const { handleAddTodo } = useTodosContext();
   return (
     <form
       onSubmit={(e) => {
